@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <!--<script type="text/javascript" src="jwtpp.js"></script>-->
+
+</head>
+<body>
+
+    <table>
+        <tr class="headerrow">
+            <td>
+                <span class="leftmargin headerFont">Paste JSON here:</span>
+                <span>
+                    <textarea id="inputBox" class="autoselect headerFont" oninput="formatString();" style="height:400px; width:500px;" > </textarea></span>
+            </td>
+        </tr>
+        <tr>
+            <td><pre id="pp"></pre></td>
+        </tr>
+    </table>
+    <p id="Error" class="Error"></p>
+    <script>
+
+        function output(inp) {
+            //document.body.appendChild(document.createElement('pre')).innerHTML = inp;
+            document.getElementById("pp").innerHTML = inp;
+        }
+
+        function syntaxHighlight(json) {
+            json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+            return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
+                var cls = 'number';
+                if (/^"/.test(match)) {
+                    if (/:$/.test(match)) {
+                        cls = 'key';
+                    } else {
+                        cls = 'string';
+                    }
+                } else if (/true|false/.test(match)) {
+                    cls = 'boolean';
+                } else if (/null/.test(match)) {
+                    cls = 'null';
+                }
+                return '<span class="' + cls + '">' + match + '</span>';
+            });
+        }
+
+        
+        function formatString() {
+            var obj = document.getElementById("inputBox").value;
+            //var obj = { a: 1, 'b': 'foo', c: [false, 'false', null, 'null', { d: { e: 1.3e5, f: '1.3e5' } }] };
+            try{
+                var obj1= JSON.parse(obj);
+                var str = JSON.stringify(obj1, undefined, 4);
+                output(syntaxHighlight(str));
+            }
+            catch (err) { output("Invalid JSON")}
+        }
+
+    </script>
+</body>
+</html>
