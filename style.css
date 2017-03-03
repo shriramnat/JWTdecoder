@@ -44,11 +44,6 @@ table {
     width:8em;
 }
 
-.headerrow {
-    background-color:#FAFAFA;
-    height:50px;
-}
-
 .indent {
     float:left;
     width:2em;
@@ -125,7 +120,7 @@ table {
 }
 
 .headerrow {
-    background-color:#FAFAFA;
+    background-color: #fafafa;
     height:50px;
 }
 
