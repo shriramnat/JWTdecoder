@@ -1,41 +1,49 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
     <meta charset="utf-8" />
     <title>JSON Web Token (JWT) Decoder</title>
     <meta name="description" content="Decode JSON Web Tokens to view token contents." />
-    <meta name="keywords" content="jwt,json web token,jose,oauth token,jwt decode,jwt viewer,jwt decoder,jsonwebtoken,jot,jose,json token decoder,oauth token,openid connect,oauth ,decode jwt,jwt parser,jwt online decoder,jwt online" />
+    <meta name="keywords" content="jwt,json web token,jose,oauth token,jwt decode,jwt viewer,jwt decoder,jsonwebtoken,jot,jose,json token decoder,oauth token,openid connect,oauth ,decode jwt,jwt parser,jwt online decoder,jwt online"
+    />
     <meta name="author" content="Shriram" />
     <link rel="stylesheet" type="text/css" href="style.css" />
-    <script type="text/javascript" src="jquery-2.0.3.min.js" ></script>
+    <script type="text/javascript" src="jquery-2.0.3.min.js"></script>
     <script type="text/javascript" src="purl.js"></script>
-     <script type="text/javascript" src="decode.js"></script>
+    <script type="text/javascript" src="decode.js"></script>
 </head>
+
 <body>
-    <section>
+    <ul class="topnav">
+        <li><a class="active" href="index.html">JWT Decoder</a></li>
+        <li><a href="Jwtpp.html">JSON Formatter</a></li>
+        <li class="right"><a href="mailto:shnatara@microsoft.com?Subject=Contacting%20w.r.t%20JSON%20formatter">Contact</a></li>
+    </ul>
+    <section style="margin-top: 50px;">
         <table>
             <tr class="headerrow">
-                <td >
-                    <p>Also Check out the <a href="jwtpp.html" target="_blank">JSON Formatter</a></p>
-                    <span class="leftmargin headerFont" >Paste token here:</span>
+                <td>
+                    <span class="leftmargin headerFont">Paste token here:</span>
                     <span><input id="inputBox" class="autoselect headerFont" /></span>
-                </td>                
+                </td>
             </tr>
             <tr>
-                <td >
+                <td>
                     <table>
-                       <tr>
-                           <td class="leftmargintable">
-                           </td>
-                           <td>
-                               <span id="decodedToken"></span>
-                           </td>
+                        <tr>
+                            <td class="leftmargintable">
+                            </td>
+                            <td>
+                                <span id="decodedToken"></span>
+                            </td>
                         </tr>
                     </table>
                 </td>
             </tr>
         </table>
-        
+
     </section>
 </body>
+
 </html>
